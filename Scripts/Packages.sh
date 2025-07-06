@@ -71,6 +71,7 @@ UPDATE_PACKAGE "viking" "VIKINGYFY/packages" "main" "" "luci-app-timewol luci-ap
 UPDATE_PACKAGE "vnt" "lmq8267/luci-app-vnt" "main"
 
 UPDATE_PACKAGE "luci-app-taskplan" "sirpdboy/luci-app-taskplan" "master"
+UPDATE_PACKAGE "luci-app-openlist" "OpenListTeam/OpenList-OpenWRT" "main"
 
 #更新软件包版本
 UPDATE_VERSION() {
