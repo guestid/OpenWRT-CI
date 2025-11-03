@@ -223,10 +223,10 @@ jobs:
           fi
 
       - name: Upload firmware directory
-        uses: softprops/action-gh-release@master
+        uses: actions/upload-artifact@main
         with:
-          tag_name: ${{env.WRT_CONFIG}}-${{env.WRT_INFO}}-${{env.WRT_BRANCH}}-${{env.WRT_DATE}}
-          files: ./wrt/upload/*.*
+          name: ${{env.WRT_CONFIG}}-${{ env.WRT_DATE }}
+          path: ./wrt/upload/
 
         
 
