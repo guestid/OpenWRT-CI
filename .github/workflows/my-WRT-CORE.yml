@@ -229,5 +229,13 @@ jobs:
           name: ${{env.WRT_CONFIG}}-${{ env.WRT_DATE }}
           path: ./wrt/upload/
 
-        
+      - name: tar firmware directory
+        run: |
+          tar -czvf ./wrt/${{env.WRT_CONFIG}}-${{ env.WRT_DATE }}.tar.gz ./wrt/upload/
+          
+      - name: Release Firmware
+        uses: softprops/action-gh-release@master
+        with:
+          tag_name: ${{env.WRT_CONFIG}}-${{env.WRT_INFO}}-${{env.WRT_BRANCH}}-${{env.WRT_DATE}}
+          files: ./wrt/*.tar.gz      
 
