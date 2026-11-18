@@ -21,6 +21,14 @@ on:
         required: false
         type: boolean
 
+      SOURCE_BRANCH:
+        description: '选择编译的源码分支'
+        default: owrt
+        type: choice
+        options:
+          - owrt
+          - main
+        
 #CI权限
 permissions: write-all
 
@@ -34,7 +42,7 @@ jobs:
       matrix:
         CONFIG: [IPQ60XX-WIFI-NO-my]
         SOURCE: [VIKINGYFY/immortalwrt]
-        BRANCH: [owrt]
+        BRANCH: ${{inputs.SOURCE_BRANCH}}
 
     #调用公用编译核心WRT-CORE.yml
     uses: ./.github/workflows/my-WRT-CORE.yml
