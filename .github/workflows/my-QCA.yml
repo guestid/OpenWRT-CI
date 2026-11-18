@@ -42,7 +42,7 @@ jobs:
       matrix:
         CONFIG: [IPQ60XX-WIFI-NO-my]
         SOURCE: [VIKINGYFY/immortalwrt]
-        BRANCH: [${{inputs.SOURCE_BRANCH}}]
+        BRANCH: ${{inputs.SOURCE_BRANCH}}
 
     #调用公用编译核心WRT-CORE.yml
     uses: ./.github/workflows/my-WRT-CORE.yml
