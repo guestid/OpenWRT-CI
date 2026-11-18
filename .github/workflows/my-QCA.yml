@@ -1,5 +1,5 @@
 #CI项目
-name: my-NSS-immortalwrt
+name: my-IPQ60XX-WIFI-NO
 
 #CI计划
 on:
@@ -11,6 +11,14 @@ on:
   #手动编译
   workflow_dispatch:
     inputs:
+      SOURCE_BRANCH:
+        description: '选择编译的源码分支'
+        default: owrt
+        type: choice
+        options:
+          - owrt
+          - main
+          
       PACKAGE:
         description: '手动调整插件包，多个请用\n符号隔开。'
         required: false
@@ -20,14 +28,6 @@ on:
         default: false
         required: false
         type: boolean
-
-      SOURCE_BRANCH:
-        description: '选择编译的源码分支'
-        default: owrt
-        type: choice
-        options:
-          - owrt
-          - main
         
 #CI权限
 permissions: write-all
