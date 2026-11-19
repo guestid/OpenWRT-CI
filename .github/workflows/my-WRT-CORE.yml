@@ -286,11 +286,19 @@ jobs:
         with:
           name: ${{env.WRT_CONFIG}}-${{env.WRT_BRANCH}}-${{ env.WRT_DATE }}
           path: ./wrt/upload/
+
+      - name: Zip Release Firmware
+        run: |
+          cd ./wrt/upload
+          rm -f ../*.zip
+          ZIP_NAME="${{ env.WRT_CONFIG }}-${{ env.WRT_BRANCH }}-${{ env.WRT_DATE }}.zip"
+          zip -r "../$ZIP_NAME" ./*
+          echo "ZIP_FILE_NAME=$ZIP_NAME" >> $GITHUB_ENV
+      
       - name: Release Firmware
         uses: softprops/action-gh-release@master
         with:
-          tag_name: ${{env.WRT_CONFIG}}-${{env.WRT_INFO}}-${{env.WRT_BRANCH}}-${{env.WRT_DATE}}
-          files: ./wrt/upload/*.*
+          files: ./wrt/${{ env.ZIP_FILE_NAME }}
           body: |
             这是个平台固件包，内含多个设备！
             请注意选择你需要的设备固件！
@@ -312,8 +320,8 @@ jobs:
             WIFI密码：${{env.WRT_WORD}}
 
             内核版本：${{env.WRT_KVER}}
-            插件列表：${{env.WRT_LIST}}
-            
+            插件列表：${{env.WRT_LIST}}      
+                            
   cache-rollover:
     name: Roll cache generations
     needs: core
