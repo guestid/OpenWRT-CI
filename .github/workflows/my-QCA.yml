@@ -8,7 +8,7 @@ on:
     inputs:
       SOURCE_BRANCH:
         description: '选择编译的源码分支'
-        default: "owrt"
+        default: "main"
         type: choice
         options:
           - owrt

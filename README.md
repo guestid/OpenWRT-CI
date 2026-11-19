@@ -53,5 +53,7 @@ Config——自定义配置
 
 # 我增加的说明
 VIKINGYFY/immortalwrt源码
+
 main 为高通专用，无法编译其他平台，带满血NSS驱动。
+
 owrt 为多平台通用，MTK、QCA、QCB带有满血PPE驱动，仅支持有线，不支持无线。
