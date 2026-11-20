@@ -52,7 +52,8 @@ Scripts——自定义脚本
 Config——自定义配置
 
 # 我增加的说明
-VIKINGYFY/immortalwrt源码
+源码：
+https://github.com/VIKINGYFY/immortalwrt
 
 main 为高通专用，无法编译其他平台，带满血NSS驱动。
 
